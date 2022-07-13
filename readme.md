@@ -1,3 +1,3 @@
-# qoirs-tools
+# qoi-info
 
-Collections of tools written in rust to explore the [QOI format](https://qoiformat.org/qoi-specification.pdf).
+Command line to read [QOI format](https://qoiformat.org/qoi-specification.pdf) file header.
