@@ -29,18 +29,18 @@ fn main() {
         }
     };
 
-    let mut ptr = 0;
+    let mut cursor = 0;
 
-    let magic: [u8; 4] = read_section(&mut ptr, &mut file);
+    let magic: [u8; 4] = read_section(&mut cursor, &mut file);
     if magic != [113, 111, 105, 102] {
         println!("Error: Given file isn't a valid QOI image.");
         exit(1);
     }
 
-    let width_buf: [u8; 4] = read_section(&mut ptr, &mut file);
-    let height_buf: [u8; 4] = read_section(&mut ptr, &mut file);
-    let channels: [u8; 1] = read_section(&mut ptr, &mut file);
-    let colorspace: [u8; 1] = read_section(&mut ptr, &mut file);
+    let width_buf: [u8; 4] = read_section(&mut cursor, &mut file);
+    let height_buf: [u8; 4] = read_section(&mut cursor, &mut file);
+    let channels: [u8; 1] = read_section(&mut cursor, &mut file);
+    let colorspace: [u8; 1] = read_section(&mut cursor, &mut file);
     
     let channel = match channels[0] {
         3 => "RBG",
